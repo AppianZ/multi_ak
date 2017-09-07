@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'wechat-plat';  /* project id 304306 */
+  src: url('//at.alicdn.com/t/font_304306_jed5m4pa9g5mte29.eot');
+  src: url('//at.alicdn.com/t/font_304306_jed5m4pa9g5mte29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_304306_jed5m4pa9g5mte29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_304306_jed5m4pa9g5mte29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_304306_jed5m4pa9g5mte29.svg#wechat-plat') format('svg');
+}
+.icon-fonts {
+	font-family: 'wechat-plat' !important;
+	font-size: 16px;
+	font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
