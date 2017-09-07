@@ -17,10 +17,11 @@
 	<h1>姓名: {{ nickName }}</h1>
 	<h2>状态: {{status}}</h2>
 	<article>
-		<section v-for="(item,index) in list" :class="{'isfinish' : item.isFinish}">
+		<section v-for="(item,index) in list"
+                 :class="{'isfinish' : item.isFinish}">
 			<a :href="item.href"></a>
 			<h4>{{index}}</h4>
-			<p v-text="item.title"></p>
+			<p @click="test(item.id)" v-text="item.title"></p>
 		</section>
 	</article>
 </div>

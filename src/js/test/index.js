@@ -16,6 +16,9 @@ new Vue ({
 		});
 	},
 	methods: {
+	  test(id) {
+	    console.log(id);
+    },
 	},
 	computed: {
 		listLength() {
