@@ -405,10 +405,10 @@ gulp.task('build', function () { // 发布
   runSequence('clean', 'sass', 'css:build', 'js:build', 'ugjs:build', 'views:build', 'images', 'fonts', function () {
     // 上传静态资源文件到CDN
     del(['./src/tmp']);
-    exec('node aliUpload.js', function (err, output) {
+   /* exec('node aliUpload.js', function (err, output) {
       if (err) console.log(err);
       console.log(output);
-    });
+    });*/
   });
 });
 gulp.task('css:build', function () {
