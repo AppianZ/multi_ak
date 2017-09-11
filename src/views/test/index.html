@@ -14,8 +14,8 @@
 </head>
 <body>
 <div id="container">
-	<h1>姓名: {{ nickName }}</h1>
-	<h2>状态6 {{status}}</h2>
+	<h1>姓名 -- {{ nickName }}</h1>
+	<h2>状态 -- {{ status }}</h2>
 	<article>
 		<section v-for="(item,index) in list"
                  :class="{'isfinish' : item.isFinish}">
