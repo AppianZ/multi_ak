@@ -1,31 +1,16 @@
-// const state = INIT_STATE;
-import { getInitList } from './../../apis/test.api';
+var btn = document.getElementById('button');
+var p = document.getElementById('p');
 
-new Vue ({
-	el: '#container',
-	data: {
-		status: 0, // 0:enabled-启动, 1:disabled-停用, 2:canceled-注销, 3:deleted-删除
-		nickName: 'Tom',
-		list: []
-	},
-	mounted() {
-		getInitList().then(response => {
-			this.status   = response.status;
-			this.nickName = response.nickName;
-			this.list     = response.list;
-		});
-	},
-	methods: {
-	  test(id) {
-	    console.log(id);
+btn.onclick = function() {
+  $.ajax({
+    url: '/test',
+    data: {
+      name: '123',
     },
-	},
-	computed: {
-		listLength() {
-			return this.list.length;
-		}
-	},
-});
-
-
+    type: 'GET',
+    success: function (res) {
+      p.innerHTML = JSON.stringify(res);
+    }
+  })
+};
 
