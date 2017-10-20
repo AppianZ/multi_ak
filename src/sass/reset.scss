@@ -53,12 +53,6 @@ img {
 .clearfix {
   zoom: 1; }
 
-body {
-	width:10rem;
-	margin:0 auto;
-	@include f(12);
-}
-
 @mixin ell() {
   overflow: hidden;
   text-overflow: ellipsis;
