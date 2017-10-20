@@ -36,7 +36,7 @@ const sourcemaps = require('gulp-sourcemaps'); // 字面意思
 const revCollector = require('gulp-rev-collector'); // 换md5版本号
 const htmlmin = require('gulp-htmlmin');
 const exec = require('child_process').exec; // 执行 shell
-let CDN = '//soundbus-media-hd.oss-cn-hangzhou.aliyuncs.com'; //  阿里云
+let CDN = ''; //  阿里云
 
 var webpackConfig = {
   resolve: {
@@ -325,8 +325,8 @@ gulp.task('views:build', function () {
       tpl: fs.readFileSync('./template.html', 'utf8')
     }
   }))
-  .pipe(replace('../../', '' + CDN + '/')) // 替换html页面静态资源地址
-  .pipe(replace('../', '' + CDN + '/')) // 替换html页面静态资源地址
+  // .pipe(replace('../../', '' + CDN + '/')) // 替换html页面静态资源地址
+  // .pipe(replace('../', '' + CDN + '/')) // 替换html页面静态资源地址
   .pipe(htmlmin(options))
   .pipe(gulp.dest(dist.views));
 });
@@ -355,8 +355,8 @@ gulp.task('views:dev', function () {
       tpl: fs.readFileSync('./vconsole.html', 'utf8')
     }
   }))
-  .pipe(replace('../../', '' + CDN + '/')) // 替换html页面静态资源地址
-  .pipe(replace('../', '' + CDN + '/')) // 替换html页面静态资源地址
+  // .pipe(replace('../../', '' + CDN + '/')) // 替换html页面静态资源地址
+  // .pipe(replace('../', '' + CDN + '/')) // 替换html页面静态资源地址
   .pipe(htmlmin(options))
   .pipe(gulp.dest(dist.views));
 });
