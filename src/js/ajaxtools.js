@@ -20,7 +20,7 @@ let host;
 if (NODE_ENV === 'dev') {
   host = `http://${window.location.host.split(':')[0]}:1600`;
 } else if (NODE_ENV === 'test') {
-  host = '';
+  host = 'http://appiantest.meckodo.com/api';
 } else {
   host = '';
 }
