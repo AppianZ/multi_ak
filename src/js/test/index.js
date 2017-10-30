@@ -2,6 +2,7 @@
 import { getInitList } from './../../apis/test.api';
 
 document.getElementById('btn').onclick = function () {
+  console.log('点击btn');
   getInitList({
     grant_type: 'password',
     username: 17601471739,
