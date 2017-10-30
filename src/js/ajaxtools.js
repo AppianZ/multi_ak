@@ -20,7 +20,7 @@ let host;
 if (NODE_ENV === 'dev') {
   host = `http://${window.location.host.split(':')[0]}:1600`;
 } else if (NODE_ENV === 'test') {
-  host = 'http://192.168.5.237:8081/api/v1';
+  host = 'http://appiantest.meckodo.com/api';
 } else {
   host = '';
 }
@@ -141,9 +141,6 @@ export function ajaxPost(postUrl, postData = {}, contentType) {
       type: 'post',
       data: postData,
       contentType: contentType,
-      headers: {
-        Authorization: 'Basic c29wX2FwcF9wbGF0Zm9ybTpZWEJ3Y0d4aGRHWnZjbTFmYzJWamNtVjA=',
-      },
       success(ret) {
         resolve(ret);
       },
