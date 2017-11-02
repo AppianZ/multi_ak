@@ -1,14 +1,19 @@
 // const state = INIT_STATE;
-import { getInitList } from './../../apis/test.api';
+import { getInitList, getToken } from './../../apis/test.api';
 
 document.getElementById('btn').onclick = function () {
   console.log('点击btn');
-  getInitList({
-    grant_type: 'password',
-    username: 17601471739,
-    password: 176014717392017
-  }).then(response => {
+  getInitList().then(response => {
     console.log('---- response is here! ---- ');
+    console.log(response);
+  });
+}
+
+
+document.getElementById('btn2').onclick = function () {
+  console.log('点击btn2');
+  getToken().then(response => {
+    console.log('---- response2 is here! ---- ');
     console.log(response);
   });
 }
