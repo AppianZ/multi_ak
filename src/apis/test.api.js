@@ -6,7 +6,7 @@ export function getInitList() {
 }
 
 export function getToken() {
-  return ajaxPost('/token');
+  return ajaxPost('/test');
 }
 
 export const query = urlQuery;

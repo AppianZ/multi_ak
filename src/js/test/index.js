@@ -9,7 +9,6 @@ document.getElementById('btn').onclick = function () {
   });
 }
 
-
 document.getElementById('btn2').onclick = function () {
   console.log('点击btn2');
   getToken().then(response => {
