@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="screen-orientation" content="portrait">
+    <title>To Yuner</title>
+    <!-- build:init -->
+    <script src="./../../js/lib/flexible.js"></script>
+    <script src="./../../js/lib/zepto1.2.0.js"></script>
+    <link rel="stylesheet" href="./../../css/reset.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="./../../css/happy/feng.css"/>
+</head>
+<body>
+<div id="titleBox"></div>
+<div class="birthday">
+    <div class="container">
+       <div class="candle">
+            <div class="fire"></div>
+            <div class="top"></div>
+            <div class="body"></div>
+            <div class="bottom"></div>
+        </div>
+
+        <div class="top-one">
+            <div class="top"></div>
+            <div class="side"></div>
+            <div class="bottom"></div>
+        </div>
+
+        <div class="bottom-one">
+            <div class="top"></div>
+            <div class="side"></div>
+            <div class="bottom">
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var text = [
+        '',
+        '',
+        '可爱',
+        '可爱的',
+        '可爱的',
+        '可爱的',
+        '可爱',
+        '可',
+        '',
+        '',
+        '大厨',
+        '大厨Y',
+        '大厨Yu',
+        '大厨Yun',
+        '大厨Yune',
+        '大厨Yuner',
+        '大厨Yuner:',
+        '大厨Yuner:<br/>',
+        '大厨Yuner:<br/>',
+        '大厨Yuner:<br/>H',
+        '大厨Yuner:<br/>Ha',
+        '大厨Yuner:<br/>Hap',
+        '大厨Yuner:<br/>Happ',
+        '大厨Yuner:<br/>Happy',
+        '大厨Yuner:<br/>Happy ',
+        '大厨Yuner:<br/>Happy B',
+        '大厨Yuner:<br/>Happy B-',
+        '大厨Yuner:<br/>Happy B-D',
+        '大厨Yuner:<br/>Happy B-Da',
+        '大厨Yuner:<br/>Happy B-Day',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+        '大厨Yuner:<br/>Happy B-Day!',
+    ];
+    var title = document.getElementById('titleBox');
+    var time = 0;
+    setTimeout(function () {
+        $('.container').addClass('on');
+    },  (text.length - 15) * 540);
+    setInterval(function () {
+        title.innerHTML = text[time++ % text.length];
+    }, 540);
+</script>
+</html>
