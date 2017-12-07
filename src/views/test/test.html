@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no"/>
     <meta name="screen-orientation" content="portrait">
+    <script src="./../../js/lib/zepto1.2.0.js"></script>
+    <script src="./../../js/lib/vue2.0.js"></script>
+    <script src="./../../js/lib/vconsole.min.js"></script>
     <title>Title</title>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+        .btn {
+            width: 100%;
+            height: 160px;
+            background: #FC606F;
+        }
+    </style>
 </head>
 <body>
 <div id="container">
-    <h1>333test.html</h1>
+    <h1>test.html</h1>
+    <h3>{{count}}</h3>
+    <div class="btn" @click="increaseCount"></div>
 </div>
+<!--<script>
+    var INIT_STATE = {$state};
+    console.log('-&#45;&#45;INIT_STATE-&#45;&#45;');
+    console.log(INIT_STATE);
+</script>-->
+<script src="./../../js/test/test.js"></script>
 </body>
 </html>
