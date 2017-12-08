@@ -22,9 +22,9 @@ var log4js = require('log4js');
 /**
  * Get port from environment and store in Express.
  */
-
 app.set('port', port);
 // log4js.configure('./src/mock/config/log4js.json');
+
 /**
  * Create HTTP server.
  */
@@ -35,7 +35,6 @@ var io = require('socket.io')(server);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -47,7 +46,11 @@ server.on('listening', onListening);
 var targetSocketArray = [];
 var roomGroupList = [];
 
+console.log(io);
+
 io.on('connection', function (socket) {
+  console.log('~~~~~~~~ connection ~~~~~~~')
+
   socket.on('joinToRoom', function (data) {
     socket.join(data.roomGroupId)
     roomGroupList.push(data.roomGroupId);
