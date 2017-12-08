@@ -22,6 +22,8 @@ new Vue({
     var ip = isDev ? 'http://localhost:1600': 'http://localhost:3001'
     this.socketClient = io.connect(ip);
 
+    console.log(ip);
+
     var d = new Date();
     this.roomGroupId = this.query('room') || 10086;
     this.id = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
