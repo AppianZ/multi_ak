@@ -4,10 +4,6 @@
 // const state = INIT_STATE;
 import { getTestSocket, addUser } from './../../apis/test.api';
 import io from 'socket.io-client';
-var isDev = window.location.origin.indexOf('localhost') || window.location.origin.indexOf('192');
-var socket = io.connect(isDev > -1 ? 'http://localhost:1600': window.location.origin.toString());
-
-
 
 new Vue({
   el: '#container',
