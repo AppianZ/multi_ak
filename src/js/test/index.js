@@ -1,16 +1,19 @@
 // const state = INIT_STATE;
 import { getTestSocket, addUser } from './../../apis/test.api';
 import io from 'socket.io-client';
-var socket = io.connect('http://localhost:1600');
-
 
  new Vue({
     el: '#container',
     data: {
       roomGroupId: -1,
       list: [],
+      socketClient: {},
     },
     mounted: function () {
+      var isDev = window.location.origin.indexOf('localhost') > -1 || window.location.origin.indexOf('192') > -1;
+      var ip = isDev ? 'http://localhost:1600': window.location.origin
+      this.socketClient = io.connect(ip);
+
       var that = this;
       this.roomGroupId = this.query('room') || 10086;
       var d = new Date();
@@ -25,8 +28,8 @@ var socket = io.connect('http://localhost:1600');
       };
       window.localStorage.setItem('socket-id-' + id, id);
 
-      socket.emit('joinToRoom', obj);
-      socket.on('showUser', function (data) {
+      this.socketClient.emit('joinToRoom', obj);
+      this.socketClient.on('showUser', function (data) {
         that.list = data;
       });
     },
