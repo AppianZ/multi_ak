@@ -1,8 +1,6 @@
 /**
  * Created by appian on 2017/12/7.
  */
-// const state = INIT_STATE;
-import { getTestSocket, addUser } from './../../apis/test.api';
 import io from 'socket.io-client';
 
 new Vue({
@@ -17,8 +15,6 @@ new Vue({
     var isDev = window.location.origin.indexOf('localhost') > -1 || window.location.origin.indexOf('192') > -1;
     var ip = isDev ? 'http://localhost:1600': 'http://localhost:3001'
     this.socketClient = io.connect(ip);
-
-    console.log(ip);
 
     var d = new Date();
     this.roomGroupId = this.query('room') || 10086;

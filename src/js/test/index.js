@@ -1,5 +1,4 @@
 // const state = INIT_STATE;
-import { getTestSocket, addUser } from './../../apis/test.api';
 import io from 'socket.io-client';
 
  new Vue({
