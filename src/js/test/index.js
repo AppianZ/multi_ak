@@ -33,6 +33,8 @@ import io from 'socket.io-client';
         console.log(data);
       });
       this.socketClient.on('showUser', function (data) {
+        console.log('--- show user ----');
+        console.log(data);
         that.list = data;
       });
     },
