@@ -10,7 +10,7 @@ import io from 'socket.io-client';
     },
     mounted: function () {
       var isDev = window.location.origin.indexOf('localhost') > -1 || window.location.origin.indexOf('192') > -1;
-      var ip = isDev ? 'http://localhost:1600': 'http://39.108.218.145:3100'
+      var ip = isDev ? 'http://localhost:1600': 'http://39.108.218.145'
       this.socketClient = io.connect(ip);
       console.log('ip1 --- ' + ip);
       var that = this;
