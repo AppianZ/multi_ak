@@ -28,10 +28,6 @@ import io from 'socket.io-client';
       window.localStorage.setItem('socket-id-' + id, id);
 
       this.socketClient.emit('joinToRoom', obj);
-      this.socketClient.emit('addUser', obj, function(data) {
-        console.log('--- add user ----');
-        console.log(data);
-      });
       this.socketClient.on('showUser', function (data) {
         console.log('--- show user ----');
         console.log(data);
