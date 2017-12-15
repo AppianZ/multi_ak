@@ -13,8 +13,6 @@ import io from 'socket.io-client';
       interval: null,
     },
     mounted: function () {
-      console.log(this.interval);
-
       var that = this;
       this.roomGroupId = this.query('room') || 10086;
       this.time = (that.query('time') ? (Number(that.query('time')) + 4) : 34);
