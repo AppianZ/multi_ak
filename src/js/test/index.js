@@ -16,7 +16,7 @@ import io from 'socket.io-client';
       var that = this;
       this.roomGroupId = this.query('room') || 10086;
       this.time = (that.query('time') ? (Number(that.query('time')) + 4) : 34);
-      this.qrCodeUrl = 'http://mobile.qq.com/qrcode?url=' + window.location.href;
+      this.qrCodeUrl = 'http://mobile.qq.com/qrcode?url=' + window.location.href.replace('/test', '/test/test');
 
       var isDev = window.location.origin.indexOf('localhost') > -1 || window.location.origin.indexOf('192') > -1;
       var ip = isDev ? 'http://localhost:1600': window.location.origin
