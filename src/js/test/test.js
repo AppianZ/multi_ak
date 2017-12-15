@@ -59,10 +59,7 @@ new Vue({
       var that = this;
       this.id = window.localStorage.getItem('socket-id-' + this.id);
       console.log(this.id, that.count);
-      if (that.timeout == '00:00') {
-        that.isWait = 4;
-        return;
-      };
+      if (that.timeout == '00:00') return;
       this.socketClient.emit('increaseCount', {
         roomGroupId: that.roomGroupId,
         id: that.id,

@@ -63,6 +63,7 @@ import io from 'socket.io-client';
             if(that.time <= 0) {
               that.isStart = 2;
               clearInterval(that.interval);
+              that.interval = null;
             }
           });
         }, 1000);
