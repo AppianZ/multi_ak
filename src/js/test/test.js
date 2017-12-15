@@ -41,8 +41,8 @@ new Vue({
     this.socketClient.emit('joinToRoom', obj);
 
     this.socketClient.emit('addUser', obj, function(data) {
-      console.log('--- add user ----');
-      console.log(data);
+      // console.log('--- add user ----');
+      // console.log(data);
     });
 
     this.socketClient.on('timeDecrease', function (data) {
@@ -59,7 +59,10 @@ new Vue({
       var that = this;
       this.id = window.localStorage.getItem('socket-id-' + this.id);
       console.log(this.id, that.count);
-      if (that.timeout == '00:00') return;
+      if (that.timeout == '00:00') {
+        that.isWait = 4;
+        return;
+      };
       this.socketClient.emit('increaseCount', {
         roomGroupId: that.roomGroupId,
         id: that.id,

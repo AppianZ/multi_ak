@@ -66,7 +66,6 @@ io.on('connection', function (socket) {
   });
 
   socket.on('onTimeCount', function (data, func) {
-    console.log ('pppppp--- ' + data.isStart);
     socket.in(data.roomGroupId).emit('timeDecrease', {
       isEnd: data.isStart == 2,
       isWait: data.isStart == 0,
