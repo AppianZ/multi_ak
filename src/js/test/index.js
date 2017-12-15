@@ -1,6 +1,8 @@
 // const state = INIT_STATE;
 import io from 'socket.io-client';
 
+window.socketInterval = null;
+
  new Vue({
     el: '#container',
     data: {
@@ -10,10 +12,9 @@ import io from 'socket.io-client';
       list: [],
       socketClient: {},
       qrCodeUrl: '',
-      interval: null,
     },
     mounted: function () {
-      clearInterval(this.interval);
+      clearInterval(window.socketInterval);
 
       var that = this;
       this.roomGroupId = this.query('room') || 10086;
@@ -52,10 +53,10 @@ import io from 'socket.io-client';
       },
       startGame: function () {
         var that = this;
-        if(this.interval) return;
+        if(window.socketInterval) return;
         event.preventDefault();
         that.isStart = 0;
-        this.interval = setInterval(function () {
+        window.socketInterval = setInterval(function () {
           that.socketClient.emit('onTimeCount', {
             roomGroupId: that.roomGroupId,
             time: --that.time,
@@ -64,7 +65,7 @@ import io from 'socket.io-client';
             if ((that.query('time') ? (Number(that.query('time'))) : 30) == res.time) that.isStart = 1;
             if(that.time <= 0) {
               that.isStart = 2;
-              clearInterval(that.interval);
+              clearInterval(window.socketInterval);
             }
           });
         }, 1000);
