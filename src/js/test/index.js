@@ -14,7 +14,8 @@ import io from 'socket.io-client';
     },
     mounted: function () {
       console.log(this.interval);
-s      var that = this;
+
+      var that = this;
       this.roomGroupId = this.query('room') || 10086;
       this.time = (that.query('time') ? (Number(that.query('time')) + 4) : 34);
       this.qrCodeUrl = 'http://mobile.qq.com/qrcode?url=' + window.location.href.replace('/test', '/test/test');
