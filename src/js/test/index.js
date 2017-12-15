@@ -15,7 +15,7 @@ import io from 'socket.io-client';
     mounted: function () {
       var that = this;
       this.roomGroupId = this.query('room') || 10086;
-      this.time = this.query('time') ? (Number(this.query('time')) + 4) || 34;
+      this.time = (that.query('time') ? (Number(that.query('time')) + 4) : 34);
       this.qrCodeUrl = 'http://mobile.qq.com/qrcode?url=' + window.location.href;
 
       var isDev = window.location.origin.indexOf('localhost') > -1 || window.location.origin.indexOf('192') > -1;
@@ -36,6 +36,8 @@ import io from 'socket.io-client';
 
       this.socketClient.emit('joinToRoom', obj);
       this.socketClient.on('showUser', function (data) {
+        console.log('--- show user ----');
+        console.log(data);
         that.list = data;
       });
     },
