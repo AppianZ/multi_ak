@@ -55,6 +55,7 @@ import io from 'socket.io-client';
         if(this.interval) return;
         event.preventDefault();
         that.isStart = 0;
+        clearInterval(that.interval);
         this.interval = setInterval(function () {
           that.socketClient.emit('onTimeCount', {
             roomGroupId: that.roomGroupId,
