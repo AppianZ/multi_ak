@@ -59,7 +59,7 @@ import io from 'socket.io-client';
             time: --that.time,
             isStart: that.isStart
           }, function (res) {
-            if ((Number(that.query('time')) || 30) == res.time) that.isStart = 1;
+            if ((that.query('time') ? Number(that.query('time')) : 30) == res.time) that.isStart = 1;
             if(that.time <= 0) {
               that.isStart = 2;
               clearInterval(that.interval);
