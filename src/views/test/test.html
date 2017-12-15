@@ -4,33 +4,46 @@
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no"/>
     <meta name="screen-orientation" content="portrait">
+    <script src="./../../js/lib/flexible.js"></script>
     <script src="./../../js/lib/zepto1.2.0.js"></script>
     <script src="./../../js/lib/vue2.0.js"></script>
-    <script src="./../../js/lib/vconsole.min.js"></script>
-    <title>Title</title>
-    <style>
-        body, html {
-            padding: 0;
-            margin: 0;
-        }
-        .btn {
-            width: 100%;
-            height: 160px;
-            background: #FC606F;
-        }
-    </style>
+    <script src="//at.alicdn.com/t/font_476901_t0lcp2a4l8xjq0k9.js"></script>
+    <title>快快快!</title>
+    <link rel="stylesheet" href="./../../css/test/test.css"/>
 </head>
 <body>
-<div id="container">
-    <h1>test.html</h1>
-    <h3>{{count}}</h3>
-    <div class="btn" @click="increaseCount"></div>
+<div id="container" v-cloak>
+    <h1 class="time-box">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-065"></use>
+        </svg>
+        <span v-for="(el,index) in timeArray"
+              v-html="index === 2 ? ':' : timeIcon[el]"></span>
+    </h1>
+    <div class="active-box">
+        <h3 class="count-box">
+            <span v-for="el in countArray" v-html="countIcon[el]"></span>
+        </h3>
+        <div class="btn-box" @click="increaseCount">
+            <div class="btn">
+                <div class="top"></div>
+                <div class="side"></div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mask" v-if="isWait >= 0 ">
+        <h5 v-if="isWait > 3"></h5>
+        <p v-else v-html="isWait == 0 ? '' : countIcon[isWait]"
+           :class="isWait == 0 ? 'start' : ''"></p>
+        <span :class="isWait > 3 ? 'figure' : ''">&#xe750;</span>
+    </div>
 </div>
-<script>
+<!--<script>
     var INIT_STATE = {$state};
-    console.log('------- 2 INIT_STATE --------');
+    console.log('-&#45;&#45;&#45;&#45;&#45;&#45; 2 INIT_STATE &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;');
     console.log(INIT_STATE);
-</script>
+</script>-->
 <script src="./../../js/test/test.js"></script>
 </body>
 </html>

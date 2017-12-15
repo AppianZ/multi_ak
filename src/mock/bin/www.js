@@ -46,14 +46,13 @@ server.on('listening', onListening);
 var targetSocketArray = [];
 var roomGroupList = [];
 
-console.log(io);
 
 io.on('connection', function (socket) {
-  console.log('~~~~~~~~ connection ~~~~~~~')
-
   socket.on('joinToRoom', function (data) {
     socket.join(data.roomGroupId)
-    roomGroupList.push(data.roomGroupId);
+    if(roomGroupList.indexOf(data.roomGroupId < 0)) {
+      roomGroupList.push(data.roomGroupId);
+    }
   })
 
   socket.on('addUser', function (data, func) {
@@ -61,7 +60,22 @@ io.on('connection', function (socket) {
     socket.in(data.roomGroupId).emit('showUser', targetSocketArray.filter(function (item) {
       return item.roomGroupId == data.roomGroupId;
     }));
-    func(targetSocketArray);
+    func(targetSocketArray.filter(function (item) {
+      return item.roomGroupId == data.roomGroupId;
+    }));
+  });
+
+  socket.on('onTimeCount', function (data, func) {
+    console.log ('pppppp--- ' + data.isStart);
+    socket.in(data.roomGroupId).emit('timeDecrease', {
+      isEnd: data.isStart == 2,
+      isWait: data.isStart == 0,
+      time: data.time
+    });
+    func({
+      time : data.time,
+      isStart: data.isStart,
+    });
   });
 
   socket.on('increaseCount', function (data) {
@@ -75,7 +89,6 @@ io.on('connection', function (socket) {
       return item.roomGroupId == data.roomGroupId;
     }));
   });
-
 });
 
 /**

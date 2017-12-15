@@ -1,0 +1,237 @@
+@import "../p2r";
+@import "../reset";
+
+@font-face {
+  font-family: 'iconfont';  /* project id 476901 */
+  src: url('//at.alicdn.com/t/font_476901_t0lcp2a4l8xjq0k9.eot');
+  src: url('//at.alicdn.com/t/font_476901_t0lcp2a4l8xjq0k9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_476901_t0lcp2a4l8xjq0k9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_476901_t0lcp2a4l8xjq0k9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_476901_t0lcp2a4l8xjq0k9.svg#iconfont') format('svg');
+}
+
+.icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  fill: currentColor;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+$btn-w: 380;
+
+body, html {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: url(https://ohovav7hg.qnssl.com/title2-4.jpg) repeat;
+  background-position: center top;
+  background-size: contain;
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(120deg, rgba(153, 11, 21, 0.8), rgba(204, 32, 49, .8));
+    z-index: -1;
+  }
+}
+
+#container {
+
+}
+
+.active-box {
+  &:active {
+    .count-box span {
+      @include f(54);
+    }
+    .btn-box .btn {
+      transform: scaleY(.8);
+    }
+  }
+}
+
+.time-box {
+  height: r(140);
+  margin: r(60) 0;
+  text-align: center;
+  span {
+    display: inline-block;
+    color: rgba(255, 255, 255, .85);
+    @include f(26);
+    font-family: 'iconfont';
+    vertical-align: bottom;
+  }
+}
+
+.count-box {
+  height: r(140);
+  margin: r(40) 0 r(-40);
+  text-align: center;
+  span {
+    display: inline-block;
+    height: r(140);
+    line-height: r(140);
+    color: rgba(255, 255, 255, .9);
+    @include f(46);
+    font-family: 'iconfont';
+  }
+}
+
+.btn-box {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  .btn {
+    position: relative;
+    padding: r(40) 0;
+    width: r($btn-w);
+    height: r($btn-w);
+    margin: 0 auto;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    .top {
+      position: absolute;
+      width: r($btn-w);
+      height: r($btn-w);
+      line-height: r($btn-w);
+      top: r(50);
+      text-align: center;
+      @include f(40);
+      color: #fff;
+      border-radius: 50%;
+      background: #FFB731;
+      transform: rotateX(60deg);
+      box-shadow: r(2) r(2) r(20) rgba(255, 255, 255, 0.3);
+      z-index: 6;
+      &:before {
+        content: 'CLICK';
+        display: block;
+        height: r($btn-w);
+        line-height: r($btn-w);
+        text-align: center;
+      }
+    }
+    .side {
+      position: absolute;
+      top: r(245);
+      width: r($btn-w);
+      height: r(70);
+      border-top-width: 0;
+      border-bottom-width: 0;
+      background: #FC8928;
+      z-index: 5;
+    }
+    .bottom{
+      position: absolute;
+      width: r($btn-w);
+      height: r($btn-w);
+      top: r(130);
+      border-radius: 50%;
+      transform: rotateX(60deg);
+      z-index: 4;
+      background: #FC8928;
+      box-shadow: 0 0 r(50) rgba(255, 183, 49, .7);
+    }
+  }
+}
+
+.mask {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,9), rgba(0,0,0,.72));
+  h5 {
+    display: block;
+    width: 100%;
+    height: r(170);
+    margin: r(110) 0 0;
+    background: url('./../../images/test/wait1.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  p {
+    display: block;
+    width: 100%;
+    height: r(170);
+    margin: r(110) 0 0;
+    @include f(70);
+    color: #fff;
+    text-align: center;
+    font-family: 'iconfont';
+    animation: start 1s infinite;
+    &.start {
+      background: url('./../../images/test/wait3.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  span {
+    position: absolute;
+    display: block;
+    font-family: 'iconfont';
+    width: 100%;
+    margin: 0 auto;
+    top: 54%;
+    @include f(70);
+    text-align: center;
+    color: rgba(255, 255, 255, .86);
+    &.figure {
+      animation: figure .7s infinite;
+    }
+    &:before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: r(70);
+      top: r(-80);
+      margin: 0 0 0 r(8);
+      background: url('./../../images/test/wait2.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+}
+
+@keyframes start
+{
+  0% {transform: scale(1)}
+  50% {transform: scale(1.25)}
+  100% {transform: scale(1)}
+}
+
+@-webkit-keyframes start /* Safari 和 Chrome */
+{
+  0% {transform: scale(1)}
+  50% {transform: scale(1.25)}
+  100% {transform: scale(1)}
+}
+
+@keyframes figure
+{
+  0% {transform: translate3d(0, r(-50), 0)}
+  35% {transform: translate3d(0, r(10), 0)}
+  40% {transform: translate3d(0, r(0), 0)}
+  100% {transform: translate3d(0, r(-50), 0)}
+}
+
+@-webkit-keyframes figure /* Safari 和 Chrome */
+{
+  0% {transform: translate3d(0, r(-50), 0)}
+  35% {transform: translate3d(0, r(10), 0)}
+  40% {transform: translate3d(0, r(0), 0)}
+  100% {transform: translate3d(0, r(-50), 0)}
+}
