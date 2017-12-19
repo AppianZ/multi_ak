@@ -52,7 +52,7 @@ body {
 .active-box {
   &:active {
     .count-box span {
-      @include f(54);
+      @include f(60);
     }
     .btn-box .btn {
       transform: scaleY(.8);
@@ -62,7 +62,7 @@ body {
 
 .time-box {
   height: r(140);
-  margin: r(60) 0;
+  margin: r(120) 0;
   text-align: center;
   span {
     display: inline-block;
@@ -75,14 +75,14 @@ body {
 
 .count-box {
   height: r(140);
-  margin: r(40) 0 r(-40);
+  margin: r(100) 0 r(-40);
   text-align: center;
   span {
     display: inline-block;
     height: r(140);
     line-height: r(140);
     color: rgba(255, 255, 255, .9);
-    @include f(46);
+    @include f(50);
     font-family: 'iconfont';
   }
 }
@@ -152,6 +152,7 @@ body {
   width: 100%;
   top: 0;
   left: 0;
+  z-index: 100;
   background: linear-gradient(180deg, rgba(0,0,0,9), rgba(0,0,0,.72));
   h5 {
     display: block;
